@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="54d9e57d-5498-40c6-9959-e2b6e84f8a7d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="bersoft-sistemaPrestamos"/>
+	<parameter name="id" class="java.lang.Integer"/>
+	<parameter name="fecha" class="java.sql.Date"/>
+	<queryString language="SQL">
+		<![CDATA[call buscar_entregas($P{id},$P{fecha});]]>
+	</queryString>
+	<field name="id_cobrador" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_cobrador"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="prestamos"/>
+	</field>
+	<field name="id_prestamo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_prestamo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="fecha" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="prestamos"/>
+	</field>
+	<field name="Codigo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Codigo"/>
+	</field>
+	<field name="total_a_pagar" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="total_a_pagar"/>
+	</field>
+	<field name="cuota" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cuota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="balance" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="balance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="monto_prestado" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="monto_prestado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="prestamos"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+	</field>
+	<variable name="totalBalance" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{balance}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="totalCuota" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{cuota}]]></variableExpression>
+	</variable>
+	<variable name="totalPrestado" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{monto_prestado}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="registros" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{Codigo}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<textField pattern="dd/M/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="60804d21-ab69-401c-a4fe-a30043ee9fec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="66" uuid="b887853c-a5cd-45c4-9868-e888b230c92c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Entregas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="20" uuid="2d6e5acd-fee2-498f-be8d-053980197185">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e2e1df9c-778f-4125-95c8-6bdf35b619cd"/>
+				</reportElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="0" width="102" height="20" uuid="6376334c-1da3-4c72-a095-68cbfdc48ab6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60adda47-34bb-45e4-ae92-a20a879ebf61"/>
+				</reportElement>
+				<text><![CDATA[TOTAL A PAGAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="0" width="92" height="20" uuid="a4845fc2-482e-4e3a-8e69-ca6136e6288c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ce6c5e0-9e7b-48fc-b3db-df8c75ccac97"/>
+				</reportElement>
+				<text><![CDATA[CUOTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="0" width="126" height="20" uuid="e469c75b-e8a1-4a26-b68d-45998943f34b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f0fc7513-8345-440f-85dc-2fca92d91670"/>
+				</reportElement>
+				<text><![CDATA[MONTO PRESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="0" width="165" height="20" uuid="8619f6ed-09bf-4489-84fe-8324d728f3b3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e3db5d3-1538-46ee-b0bc-e886293b5c22"/>
+				</reportElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="0" y="0" width="70" height="20" uuid="1549e72d-f867-4e5d-9d80-111c8cf14f78">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e2e1df9c-778f-4125-95c8-6bdf35b619cd"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Codigo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="70" y="0" width="102" height="20" uuid="79396319-6f90-470f-809a-5185ff70237e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60adda47-34bb-45e4-ae92-a20a879ebf61"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{total_a_pagar}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="172" y="0" width="92" height="20" uuid="15173085-7733-4578-b6a3-49f87240223e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ce6c5e0-9e7b-48fc-b3db-df8c75ccac97"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cuota}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="264" y="0" width="126" height="20" uuid="ec4cd670-c2e2-43c5-be0f-a43ef11ec3e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f0fc7513-8345-440f-85dc-2fca92d91670"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{monto_prestado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="390" y="0" width="165" height="20" uuid="ba2d8711-6669-42df-b0c8-0221b05eb64f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e3db5d3-1538-46ee-b0bc-e886293b5c22"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="65" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="42" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="59" splitType="Stretch">
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="264" y="30" width="104" height="24" uuid="9bc81a21-2460-4cf6-9e8a-303dec0928b8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{totalPrestado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="130" y="30" width="100" height="24" uuid="bafdc510-dd9b-4b9e-b6b9-e1cf5df8de8f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{totalCuota}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="264" y="16" width="104" height="14" uuid="e3f51154-6960-497c-80b8-2f89f7c7c387"/>
+				<text><![CDATA[TOTAL PRESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="16" width="100" height="14" uuid="fd263f7e-7ff1-493d-aee5-494e4cd98cfa"/>
+				<text><![CDATA[TOTAL DE CUOTAS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="24" width="124" height="30" uuid="91988826-1c9d-4118-89b8-254d4f4bca22"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Registros : "+ $V{registros}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

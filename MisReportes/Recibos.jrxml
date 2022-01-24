@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Recibos" pageWidth="612" pageHeight="266" columnWidth="592" leftMargin="20" rightMargin="0" topMargin="20" bottomMargin="0" uuid="5286269d-6d7e-48ca-8bed-843c5ab56585">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<parameter name="id_cob" class="java.lang.Integer"/>
+	<parameter name="fecha" class="java.sql.Date"/>
+	<parameter name="nombreCompania" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Nombre Compania"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Call buscar_recibos_para_imprimir($P{id_cob},$P{fecha});]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="apellido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="cedula" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cedula"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="direccion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="telefono1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="telefono1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="telefono2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="telefono2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="telefono3" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="telefono3"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="ocupacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ocupacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="recomendado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="recomendado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="id_pres" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_pres"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="prestamos"/>
+	</field>
+	<field name="fecha_inicial" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_inicial"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="prestamos"/>
+	</field>
+	<field name="fecha_termino" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_termino"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="prestamos"/>
+	</field>
+	<field name="monto" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="monto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="prestamos"/>
+	</field>
+	<field name="id_rec" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_rec"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="no_cuota" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="no_cuota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="cuota" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cuota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="balance" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="balance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="id_cobr" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_cobr"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cobrador"/>
+	</field>
+	<field name="nomb_cobrador" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomb_cobrador"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cobrador"/>
+	</field>
+	<field name="tel_cob" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tel_cob"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cobrador"/>
+	</field>
+	<field name="nomb_zona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nomb_zona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="zona"/>
+	</field>
+	<field name="dir_zona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="dir_zona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="zona"/>
+	</field>
+	<field name="tel_zona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tel_zona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="zona"/>
+	</field>
+	<field name="t_atrasos" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="t_atrasos"/>
+	</field>
+	<field name="t_abonos" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="t_abonos"/>
+	</field>
+	<field name="terminantes" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="terminantes"/>
+	</field>
+	<variable name="Balance" class="java.lang.String">
+		<variableExpression><![CDATA[($F{t_atrasos} == 0)? "" : "Atraso : " + new java.text.DecimalFormat("¤#,##0.00;¤-#,##0.00").format(  ($F{t_atrasos} -   $F{t_abonos}) )]]></variableExpression>
+	</variable>
+	<variable name="id_cliente" class="java.lang.String">
+		<variableExpression><![CDATA[(LEN($F{id}+"")==1) ? "00000"+$F{id}:
+(LEN($F{id}+"")==2) ? "0000"+$F{id}:
+(LEN($F{id}+"")==3) ? "000"+$F{id}:
+(LEN($F{id}+"")==4) ? "00"+$F{id}: 
+(LEN($F{id}+"")==5) ? "0"+$F{id}: 
+(LEN($F{id}+"")>=6) ? $F{id}: $F{id}+""]]></variableExpression>
+	</variable>
+	<variable name="id_press" class="java.lang.String">
+		<variableExpression><![CDATA[(LEN($F{id_pres}+"")==1) ? "00000"+$F{id_pres}:
+(LEN($F{id_pres}+"")==2) ? "0000"+$F{id_pres}:
+(LEN($F{id_pres}+"")==3) ? "000"+$F{id_pres}:
+(LEN($F{id_pres}+"")==4) ? "00"+$F{id_pres}: 
+(LEN($F{id_pres}+"")==5) ? "0"+$F{id_pres}: 
+(LEN($F{id_pres}+"")>=6) ? $F{id_pres}: $F{id_pres}+""]]></variableExpression>
+	</variable>
+	<variable name="total_ruta" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{cuota}]]></variableExpression>
+	</variable>
+	<variable name="terminantes" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{cuota}.sum(0, $F{cuota} )]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<detail>
+		<band height="226" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="59" width="566" height="16" uuid="2d438924-4045-4789-aa4f-bc428df7d29d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="75" width="478" height="16" uuid="151c2f0a-3ddf-4861-9a61-46f98e4e7cd4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{nombre}+" "+$F{apellido}).toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="32" width="148" height="26" uuid="e6c25322-d536-4e07-8178-1be815531623">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="SansSerif" size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PAGARE NO: "+IF(LEN( $F{no_cuota}.toString()) <2, "0"+$F{no_cuota},$F{no_cuota})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="110" width="50" height="16" uuid="6da9d387-9a5b-4433-94ba-b37e3f201a8e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["VALOR : "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="110" width="70" height="16" uuid="b6c7b75c-1353-456a-b33a-9952a115c12b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BALANCE : "]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="50" y="110" width="80" height="16" uuid="44273409-6d4e-4a5d-a6b9-61d524b72527">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuota}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="250" y="110" width="100" height="16" uuid="378ee65d-db05-481b-8923-b642d3917aa6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{balance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="126" width="566" height="16" uuid="a81f11db-94a8-4700-8263-2b4a2c9373ad">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[---------------------------------------------------------------------------------------------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="156" width="309" height="13" uuid="3c20b595-e133-4288-bca6-460ef9f1d257">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Direccion         : "+$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="170" width="410" height="13" uuid="6f4289c8-6ed1-4063-b01f-97496a11b770">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Telefonos        : "+$F{telefono1}+", "+$F{telefono2}+", "+$F{telefono3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="183" width="309" height="13" uuid="0111ce4d-7642-4a6a-9bb3-489223f2239d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ocupacion       : "+$F{ocupacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="197" width="115" height="15" uuid="ddd92997-6c56-460c-9b63-cec5c61abba4"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="500" y="19" width="59" height="13" uuid="6e2731ee-d436-4d2f-80e8-2b75ad91a284">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="19" width="39" height="13" uuid="5670adb3-75bc-4736-a358-985a634acd17">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Fecha :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="445" y="177" width="115" height="19" uuid="3e293155-ac15-4b82-b9f3-a8a9ca06cab9"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{id_cliente}+"-"+$V{id_press}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="ScaleFont">
+				<reportElement x="380" y="111" width="188" height="15" uuid="7e8ddce9-7f20-4647-8433-3f20d19f4289">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cantidad Prestada : "+new java.text.DecimalFormat("¤#,##0.00;¤-#,##0.00").format(Double.valueOf($F{monto}+""))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="6" width="59" height="13" uuid="6b7c4144-1900-4e84-b05d-25b393db2447">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(LEN($F{id_rec}+"")==1) ? "00000"+$F{id_rec}:
+(LEN($F{id_rec}+"")==2) ? "0000"+$F{id_rec}:
+(LEN($F{id_rec}+"")==3) ? "000"+$F{id_rec}:
+(LEN($F{id_rec}+"")==4) ? "00"+$F{id_rec}: 
+(LEN($F{id_rec}+"")==5) ? "0"+$F{id_rec}: 
+(LEN($F{id_rec}+"")>=6) ? $F{id_rec}: $F{id_rec}+""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="6" width="39" height="13" uuid="a327faff-1da8-42b2-b9c8-62a1cfc75af6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[IdRec..:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="16" width="268" height="14" uuid="661fe952-a2a0-4208-9634-f43dff672d43"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomb_zona}+", "+$F{dir_zona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="270" height="15" uuid="b22ab15d-7392-42ce-b82d-ca1ae05a3086">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Oficina : "+$F{tel_zona}+"  Flota : "+$F{tel_cob}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="142" width="134" height="14" uuid="d5afabf2-85f3-497e-9b9e-7f181bd2a5f4"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Zona : "+$F{nomb_zona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="142" width="160" height="14" uuid="aad84d70-e464-410a-9345-212617742826"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(LEN($F{id_cobr}+"")==1)? "Cobrador : "+"00"+$F{id_cobr}+" "+$F{nomb_cobrador}:
+(LEN($F{id_cobr}+"")==2)? "Cobrador : "+"0"+$F{id_cobr}+" "+$F{nomb_cobrador}:
+(LEN($F{id_cobr}+"")>=3)? "Cobrador : "+$F{id_cobr}+" "+$F{nomb_cobrador}:"Cobrador : "+$F{id_cobr}+" "+$F{nomb_cobrador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="180" height="16" uuid="6f8c90e7-c7d1-4fcd-ade8-0b354f943841">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombreCompania}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="32" width="99" height="15" uuid="d693d533-c794-4ea0-81bf-4c27cd3a229b"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Balance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="196" width="309" height="13" uuid="53d8c30f-49e5-48f8-a61c-39a9375efadd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Recomendado : "+ $F{recomendado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="48" width="98" height="11" uuid="6d4eca0c-55fe-4075-91cd-48e8ae4f6b39"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/M/yyyy">
+				<reportElement x="2" y="45" width="70" height="14" uuid="52f375ca-4416-43c0-b66b-842e0354a468"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Entregado: "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="72" y="45" width="80" height="14" uuid="e0b84316-4d43-4666-9d1f-457a7ee4b96f"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_inicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="45" width="59" height="14" uuid="12358b42-d63e-409e-99c1-28b74df03e3f"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Termina : "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="212" y="45" width="100" height="14" uuid="c1aa3ac1-aa6b-4687-a753-941a1fdb3adf"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_termino}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="91" width="580" height="19" uuid="2d466470-990c-4db6-a779-57572fb82f07"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[*** DIOS TE BENDIGA ***]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band height="216">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="445" y="19" width="113" height="13" uuid="044b7caf-0355-4385-a0f2-0d37cab36a80">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="18" width="134" height="14" uuid="0b2de3ef-12e9-4d8a-9601-0a6d905a00c0"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Zona : "+$F{nomb_zona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="32" width="160" height="14" uuid="3086f1c5-3194-4c69-8cad-90007006e5d2"/>
+				<textElement textAlignment="Left">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(LEN($F{id_cobr}+"")==1)? "Cobrador : "+"00"+$F{id_cobr}+" "+$F{nomb_cobrador}:
+(LEN($F{id_cobr}+"")==2)? "Cobrador : "+"0"+$F{id_cobr}+" "+$F{nomb_cobrador}:
+(LEN($F{id_cobr}+"")>=3)? "Cobrador : "+$F{id_cobr}+" "+$F{nomb_cobrador}:"Cobrador : "+$F{id_cobr}+" "+$F{nomb_cobrador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="80" width="160" height="20" uuid="13af45d5-f1c8-4a15-a2fa-18b78efb79a3"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cantidad de Recibos : "+($V{PAGE_NUMBER} - 1)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="100" width="278" height="30" uuid="37fd5ec0-e260-48eb-b998-8f0ba3a7a696"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total de ruta              : " +new java.text.DecimalFormat("¤#,##0.00;¤-#,##0.00").format(Double.valueOf($V{total_ruta}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="180" width="160" height="30" uuid="b4911267-9e47-47f5-9d86-9736be6239bd"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{terminantes}==null)?"Terminantes : 0": "Terminantes    : "+new java.text.DecimalFormat("¤#,##0.00;¤-#,##0.00").format(Double.valueOf($F{terminantes}))]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

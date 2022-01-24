@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListaDeCobro" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f087a41-ec91-4283-9f8b-c8ea0b9414a4">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="bersoft-sistemaPrestamos"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="id" class="java.lang.Integer"/>
+	<parameter name="fecha" class="java.sql.Date"/>
+	<queryString>
+		<![CDATA[Call buscar_lista_de_cobro($P{id},$P{fecha});]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="id_prestamo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_prestamo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="numero_cuota" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="numero_cuota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="fecha" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="cuota" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="cuota"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="balance" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="balance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="esta_en_adelanto" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="esta_en_adelanto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="recibos"/>
+	</field>
+	<field name="id_cliente" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_cliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="prestamos"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+	</field>
+	<variable name="totalCuota" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{cuota}]]></variableExpression>
+	</variable>
+	<variable name="totalBalance" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{balance}]]></variableExpression>
+	</variable>
+	<variable name="totalRegistros" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{numero_cuota}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="19" width="555" height="60" uuid="4160ff0c-9410-4669-bfaf-08094ec3a100"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[LISTA DE COBRO]]></text>
+			</staticText>
+			<textField pattern="dd/M/yyyy">
+				<reportElement x="455" y="-1" width="100" height="20" uuid="401580d9-58eb-4892-a095-cf1c7a422797"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="74" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="141" height="30" uuid="9213a8da-73ef-4358-a685-248f818fb7ae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ea9a2536-d478-4390-8fb4-4affd9514d4c"/>
+				</reportElement>
+				<text><![CDATA[NUMERO DE CUOTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="0" width="138" height="30" uuid="61af321d-e1d4-4653-88f9-10a9ab17d83b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aefe115d-b16a-4a45-814c-41a08e145d48"/>
+				</reportElement>
+				<text><![CDATA[CUOTA A PAGAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="0" width="99" height="30" uuid="6fbf4081-abe3-4a69-876d-2679ead0687d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aeba3ac4-b502-4d92-a9cc-e9e9214e2e86"/>
+				</reportElement>
+				<text><![CDATA[BALANCE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="0" width="175" height="30" uuid="183d8c62-760c-4e33-a5f1-50ee07d0833a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74eee80f-7cbf-40a1-8e9c-9a70a755ec32"/>
+				</reportElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="1" width="141" height="20" uuid="41857215-931a-4c62-ac76-53ac545a81a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ea9a2536-d478-4390-8fb4-4affd9514d4c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{numero_cuota}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="141" y="1" width="138" height="20" uuid="2b3efaee-619e-4efd-b798-1df8b6076697">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aefe115d-b16a-4a45-814c-41a08e145d48"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cuota}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="279" y="1" width="99" height="20" uuid="af7ee3fd-f4de-4248-802f-f62a3d968519">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aeba3ac4-b502-4d92-a9cc-e9e9214e2e86"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{balance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="1" width="175" height="20" uuid="6acf355f-079b-43fa-a3e3-5617fe4cff4e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74eee80f-7cbf-40a1-8e9c-9a70a755ec32"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="63" splitType="Stretch">
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="283" y="41" width="100" height="22" uuid="63f67b1b-bf53-454a-9050-1ef609bc5a12"/>
+				<textFieldExpression><![CDATA[$V{totalBalance}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="141" y="41" width="100" height="22" uuid="1fb25d1b-903c-48a8-8b9e-4a32aa7628f5"/>
+				<textFieldExpression><![CDATA[$V{totalCuota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="40" width="100" height="22" uuid="a0246f31-c636-4293-a004-f2c3e6988550"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Registros"+" "+$V{totalRegistros}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="141" y="20" width="100" height="20" uuid="a303f02e-343a-4f29-8c4f-98199956a6a1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[TOTAL DE CUOTAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="21" width="100" height="20" uuid="afc67326-2d77-4c2b-88e7-b29c701e0884"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[BALANCE TOTAL]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
